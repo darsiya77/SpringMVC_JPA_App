@@ -1,4 +1,4 @@
-package com.example.dao;
+package com.example.service;
 
 import com.example.model.User;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -11,7 +11,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-public class UserDaoImpl implements UserDAO {
+public class UserServiceImpl implements UserService {
 
     @PersistenceContext
     private EntityManager em;
@@ -22,10 +22,10 @@ public class UserDaoImpl implements UserDAO {
         // Проверяем, нет ли уже данных, чтобы избежать дублирования
         Long count = (Long) em.createQuery("select count(u) from User u").getSingleResult();
         if (count == 0) {
-            em.persist(new User("UserName1", "UserSurname1", "User1@mail.ru"));
-            em.persist(new User("UserName2", "UserSurname2", "User2@mail.ru"));
-            em.persist(new User("UserName3", "UserSurname3", "User3@mail.ru"));
-            em.persist(new User("UserName4", "UserSurname4", "User4@mail.ru"));
+            em.persist(new User("UserFirstName1", "UserLastName1", "User1@mail.ru"));
+            em.persist(new User("UserFirstName2", "UserLastName2", "User2@mail.ru"));
+            em.persist(new User("UserFirstName3", "UserLastName3", "User3@mail.ru"));
+            em.persist(new User("UserFirstName4", "UserLastName4", "User4@mail.ru"));
 
         }
     }
@@ -48,14 +48,16 @@ public class UserDaoImpl implements UserDAO {
         em.persist(user);
     }
 
+    @Transactional
     @Override
     public void update(int id, User updatedUser) {
         updatedUser.setId(id);
         em.merge(updatedUser);
     }
 
+    @Transactional
     @Override
     public void delete(int id) {
-        em.createQuery("delete User u where id=:id").setParameter("id", id).executeUpdate();
+        em.createQuery("delete from User u where u.id=:id").setParameter("id", id).executeUpdate();
     }
 }

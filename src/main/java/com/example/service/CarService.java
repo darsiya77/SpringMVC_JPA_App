@@ -2,6 +2,6 @@ package com.example.service;
 
 import java.util.List;
 
-public interface CarService <T> {
-    List<T> showCars(Integer count);
+public interface CarService <Car> {
+    List<Car> showCars(Integer count);
 }

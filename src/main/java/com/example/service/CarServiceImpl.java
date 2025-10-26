@@ -1,7 +1,7 @@
 package com.example.service;
 
 import com.example.model.Car;
-import jakarta.annotation.PostConstruct;
+
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Repository;
@@ -9,9 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @Repository
 public class CarServiceImpl implements CarService<Car> {
