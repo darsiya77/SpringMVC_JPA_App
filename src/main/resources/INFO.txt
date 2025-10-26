@@ -1,0 +1,24 @@
+В классе CarServiceImpl
+
+ - @EventListener:
+
+Это аннотация Spring, которая обозначает, что метод должен обрабатывать событие приложения.
+
+Метод будет вызван, когда в контексте приложения Spring происходит событие указанного типа.
+
+В классе AppConfig
+Если не добавить после аннотации @EnableTransactionManagement(proxyTargetClass = true)
+запись в скобках (proxyTargetClass = true), то будет возникать ошибка при запуске приложения
+Ошибка возникает из-за того, что Spring использует прокси на основе интерфейсов по умолчанию, а метод
+onApplicationEvent не объявлен в интерфейсе CarService. Spring не может найти этот метод в интерфейсе,
+поэтому не может создать прокси.
+
+В классе CarServiceImpl добавляем метод (который при запуске приложения загоняет в БД данные для тестов):
+
+    @EventListener
+    @Transactional
+    public void onApplicationEvent(ContextRefreshedEvent event) {
+            em.persist(new Car("Car1", "color1"));
+            em.persist(new Car("Car2", "color2"));
+    }
+

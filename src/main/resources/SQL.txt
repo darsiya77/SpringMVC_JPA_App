@@ -1,0 +1,43 @@
+- Создаем таблицу в среде разработки, в консоле пишем команды:
+
+first_db.public create table Person(
+                                        id int,
+                                        name varchar,
+                                        age int,
+                                        email varchar
+                 )
+Добавляем в таблицу людей
+
+    insert into person values(1,'Tom', 18, 'tom@mail.ru'),
+                 (2,'Bob', 28, 'bob@mail.ru'),
+                 (3,'Kate', 17, 'kate@mail.ru'),
+                 (4,'Elen', 20, 'elen@mail.ru')
+
+insert into person values(1, 'Tom', 18, 'tom@mail.ru'),
+                 (2, 'Bob', 28, 'bob@mail.ru'),
+                 (3, 'Kate', 17, 'kate@mail.ru'),
+                 (4, 'Elen', 20, 'elen@mail.ru')
+
+
+CREATE TABLE IF NOT EXISTS cars (
+id INT AUTO_INCREMENT PRIMARY KEY,
+model VARCHAR(50) NOT NULL,
+color VARCHAR(50) NOT NULL
+);
+
+id int PRIMARY KEY,
+
+DROP TABLE IF EXISTS person
+
+insert into cars values(1, 'Car1', 'color1'),
+                         (2, 'Car2', 'color3'),
+                         (3, 'Car3', 'color3'),
+                         (4, 'Car4', 'color4'),
+                         (5, 'Car5', 'color5')
+
+insert into users values(1, 'Tom', 'Redl', 22),
+                        (2, 'Bob', 'Wolfson', 28),
+                        (3, 'Andrey', 'Fomin', 31),
+                        (4, 'Alexey', 'Parhomenko', 44)
+
+SELECT * FROM cars

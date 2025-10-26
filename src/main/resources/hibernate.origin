@@ -1,0 +1,16 @@
+
+# MySQL properties
+hibernate.driver_class=
+hibernate.connection.url=
+hibernate.connection.db.username=
+hibernate.connection.db.password=
+hibernate.entity.package = com.example.model
+
+# Hibernate properties
+hibernate.dialect=
+hibernate.show_sql=true
+hibernate.hbm2ddl.auto=create
+
+hibernate.format_sql=true
+hibernate.connection.charSet=UTF-8
+
