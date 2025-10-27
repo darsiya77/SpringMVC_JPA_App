@@ -1,7 +1,34 @@
-.idea/*
-out/*
-target/*
-*.class
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/tmp/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
 *.war
 *.jar
 *.ear
+*.class
+
+# Logs
+*.log
+
+# Temp
+*.tmp
+*.temp
